@@ -1,0 +1,1 @@
+create table nbc_apps.tbl_cvg_logger (id varchar2(2000), tad_payload clob, proc_input clob, error_log clob, requested_by varchar2(1000), created_date date);

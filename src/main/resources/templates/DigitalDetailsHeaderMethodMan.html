@@ -1,0 +1,41 @@
+<table class='pdfitable display bottom nbc-first-in-group'>
+<tbody class='display'>
+	<tr>
+		<td style='font-weight: bold; text-align: right;'>Order Name: </td>
+		<td th:utext="${order.orderName}"></td>
+		<td style='font-weight: bold; text-align: right;'>Total Net: </td>
+		<td th:utext="${order.totalNet}"></td>
+		<td style='font-weight: bold; text-align: right;'>Account Executive: </td>
+		<td th:utext="${order.accountExecutiveName}"></td>
+	</tr>
+	<tr>
+		<td style='font-weight: bold; text-align: right;'>Agency: </td>
+		<td th:utext="${order.agencyName}"></td>
+		<td style='font-weight: bold; text-align: right;'>Total Gross: </td>
+		<td th:utext="${order.totalGross}"></td>
+		<!-- <td style='font-weight: bold; text-align: right;'>Planner: </td>
+		<td th:utext="${header.digital_planner}"></td> -->
+	</tr>
+	<tr>
+		<td style='font-weight: bold; text-align: right;'>Advertiser: </td>
+		<td th:utext="${order.advertiserName}"></td>
+		<td style='font-weight: bold; text-align: right;'>Order Currency: </td>
+		<td th:utext="${order.orderCurrency}"></td>
+		<!-- <td style='font-weight: bold; text-align: right;'>Demo: </td>
+		<td th:utext="${order.demographic}"></td> -->
+	</tr>
+	<tr>
+		<td style='font-weight: bold; text-align: right;'>Start Date: </td>
+		<td th:utext="${order.startDate}"></td>
+		<td style='font-weight: bold; text-align: right;'>Total Impressions: </td>
+		<td th:utext="${order.totalImps}"></td>
+	</tr>
+	<tr>
+		<td style='font-weight: bold; text-align: right;'>End Date: </td>
+		<td th:utext="${order.endDate}"></td>
+		<td style='font-weight: bold; text-align: right;'>eCPM: </td>
+		<td th:utext="${order.eCpm}"></td>
+	</tr>
+</tbody>
+</table>
+<br/>

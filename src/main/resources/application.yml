@@ -1,0 +1,37 @@
+spring:
+ profiles: "default"
+ datasource:
+  driverClassName: 'oracle.jdbc.driver.OracleDriver'
+  username: onair
+  password: nbcci
+  url: jdbc:oracle:thin:@//HOST_NAME:PORT_NO/t123rpt
+  maximum-pool-size: 20
+  max-active: 10
+  min-idle: 2
+  max-idle: 5  
+  max-wait: 10000
+  testOnBorrow: true 
+  validationQuery: "select 1 from dual" 
+  validationInterval: 10000
+ jpa:
+  show-sql: true
+  database-platform: 'org.hibernate.dialect.Oracle10gDialect'
+  hibernate:
+   ddl-auto: none
+logging:
+ level:
+   webapp: DEBUG
+data:  
+ page:
+  defaultSize: 5000
+  maxSize: 10000  
+digitalURI: 
+linearSummaryURI:  
+standardHeaders1: "Gross<br/>Total<br/>Dollars,Net<br/>Total<br/>Dollars"
+standardHeaders2: "EQ<br/>:30s,#:05<br/>BB's,#:10<br/>BB's"
+standardHeaders3: "Total<br/>HH<br/>(000),Total<br/>HH<br/>CPM"
+  basic:
+    enabled: false
+management:
+  security:
+    enabled: false

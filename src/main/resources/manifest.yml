@@ -1,0 +1,16 @@
+---
+applications:
+- name: custom-reports-prod
+  instances: 2
+  memory: 4G
+  path: ../custom_reports.war
+  host: custom-reports-prod
+  buildpack: https://github.com/cloudfoundry/java-buildpack#v4.6
+services:
+ - methodman-prod-config-server
+env:
+   CF_STAGING_TIMEOUT: 50
+   CF_STARTUP_TIMEOUT: 100      
+   SPRING_PROFILES_ACTIVE: prod
+   http_proxy: http://proxy.inbcu.com:80
+   https_proxy: http://proxy.inbcu.com:80

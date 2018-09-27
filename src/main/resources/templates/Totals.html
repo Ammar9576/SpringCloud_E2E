@@ -1,0 +1,19 @@
+      <tr style="background-color:#becadd;font-weight:700" indent="1_" group_table_number="0" table_number="1" leaf="yes" collapse_id="0"> 
+	   <td style="white-space: nowrap; vertical-align:middle;"> 
+    <div style="display:table;"> 
+     <div style="display:table-cell; text-align: left;" th:utext="${totalsModel.type}">
+     </div> 
+    </div></td>
+    <td  th:utext= "'$'+${#numbers.formatDecimal(totalsModel.grossDollars, 0, 'COMMA', 0, 'POINT')}" ></td>
+    <td  th:utext= "'$'+${#numbers.formatDecimal(totalsModel.netDollars, 0, 'COMMA', 0, 'POINT')}" ></td>
+    <td   th:utext= "${isMultipleRatingStream!='Y' and grossCpm == null and costMethod=='CPM'}?'$'+${#numbers.formatDecimal(totalsModel.grossCpm, 1, 2)}:''" ></td>    
+    <td  th:utext= "${isMultipleRatingStream!='Y' and netCpm == null and costMethod=='CPM'}?'$'+${#numbers.formatDecimal(totalsModel.netCpm, 1, 2)}:''" ></td>
+    <td  th:utext= "${isMultipleRatingStream!='Y' and imps == null}?${#numbers.formatDecimal(totalsModel.imps, 0, 'COMMA', 0, 'POINT')}:''" ></td>
+   <td style="text-align: center; vertical-align:middle;"></td> 
+   <td style="text-align: center; vertical-align:middle;"></td> 
+   <td style="text-align: center; vertical-align:middle;"></td> 
+   <td style="text-align: center; vertical-align:middle;"></td> 
+   <td style="text-align: center; vertical-align:middle;"></td>
+   <td style="text-align: center; vertical-align:middle;" th:each="key : ${secDemos}"></td> 
+   <td></td>
+	 </tr>

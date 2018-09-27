@@ -1,0 +1,20 @@
+---
+applications:
+- name: custom-reports-stage
+  instances: 1
+  memory: 2G
+  path: ../custom_reports.war
+  host: custom-reports-stage
+  buildpack: https://github.com/cloudfoundry/java-buildpack#v4.6
+  
+services:
+ - methodman-stage-config-server
+ - methodman-stage-service-registry
+env:
+   CF_STAGING_TIMEOUT: 50
+   CF_STARTUP_TIMEOUT: 100      
+   SPRING_PROFILES_ACTIVE: stage
+   http_proxy: http://proxy.inbcu.com:80
+   https_proxy: http://proxy.inbcu.com:80
+   #JAVA_OPTS: -Dappdynamics.https.proxyHost=proxy.inbcu.com -Dappdynamics.https.proxyPort=80 -Dappdynamics.http.proxyHost=proxy.inbcu.com -Dappdynamics.http.proxyPort=80 -Dappdynamics.agent.applicationName="custom-reports-stage" -Dappdynamics.agent.tierName=custom-reports-stage
+   

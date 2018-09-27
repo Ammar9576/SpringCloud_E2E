@@ -1,0 +1,15 @@
+---
+applications:
+- name: custom-reports-dev
+  instances: 1
+  memory: 3G
+  path: ../../../target/custom_reports.war
+  host: custom-reports-dev
+  buildpack: https://github.com/cloudfoundry/java-buildpack#v4.6
+  #buildpack: java_buildpack_offline
+env:
+   CF_STAGING_TIMEOUT: 100
+   CF_STARTUP_TIMEOUT: 100      
+   SPRING_PROFILES_ACTIVE: dev
+   http_proxy: http://proxy.inbcu.com:80
+   https_proxy: http://proxy.inbcu.com:80

@@ -1,0 +1,46 @@
+<tbody>
+   <tr style="background-color:#ECF0F1;font-weight:700" indent="1_" group_table_number="0" table_number="1" leaf="yes" collapse_id="0"
+       th:if="${isAdPrdGrpRollup}==false" th:each="row : ${nonvideo.groups}"> 
+   <td style="white-space: nowrap; vertical-align:middle;"> 
+    <div style="display:table;"> 
+     <div th:utext="${row.group}">
+     </div> 
+     <div style="display:table-cell; text-align: left;"></div> 
+    </div></td> 
+   <td style="text-align: center; vertical-align:middle;" th:utext="'$'+${#numbers.formatDecimal(row.grossTotal, 1, 'COMMA', 0, 'POINT')}"></td> 
+   <td style="text-align: center; vertical-align:middle;" th:utext="'$'+${#numbers.formatDecimal(row.netTotal, 1, 'COMMA', 0, 'POINT')}"></td> 
+   <td style="text-align: center; vertical-align:middle;" th:utext="${row.costMethod == 'CPM'} ? '$'+${#numbers.formatDecimal(row.grossCpm, 1, 2)} : ''"></td> 
+   <td style="text-align: center; vertical-align:middle;" th:utext="${row.costMethod == 'CPM'} ? '$'+${#numbers.formatDecimal(row.netCpm, 1, 2)} : ''"></td> 
+   <td style="text-align: center; vertical-align:middle;" th:utext="${#numbers.formatDecimal(row.impressions, 1, 'COMMA', 0, 'POINT')}"></td>
+   <td style="text-align: center; vertical-align:middle;"></td> 
+   <td style="text-align: center; vertical-align:middle;"></td> 
+   <td style="text-align: center; vertical-align:middle;"></td> 
+   <td style="text-align: center; vertical-align:middle;"></td> 
+   <td style="text-align: center; vertical-align:middle;"></td> 
+   <td style="text-align: center; vertical-align:middle;" th:each="key : ${secDemos}"></td> 
+   <td></td>
+  </tr>
+  <tr style="background-color:#becadd;font-weight:700" indent="1_" group_table_number="0" table_number="1" leaf="yes" collapse_id="0"> 
+   <td style="white-space: nowrap; vertical-align:middle;"> 
+    <div style="display:table;"> 
+     <!-- <div>
+       &nbsp;&nbsp;&nbsp;&nbsp; 
+     </div>  -->
+     <div style="display:table-cell; text-align: left;">
+      DIGITAL NON-VIDEO TOTALS
+     </div> 
+    </div></td> 
+   <td style="text-align: center; vertical-align:middle;" th:utext="'$'+${#numbers.formatDecimal(nonvideo.grossTotal, 1, 'COMMA', 0, 'POINT')}"></td> 
+   <td style="text-align: center; vertical-align:middle;" th:utext="'$'+${#numbers.formatDecimal(nonvideo.netTotal, 1, 'COMMA', 0, 'POINT')}"></td> 
+   <td style="text-align: center; vertical-align:middle;"></td> 
+   <td style="text-align: center; vertical-align:middle;"></td> 
+   <td style="text-align: center; vertical-align:middle;"></td> 
+   <td style="text-align: center; vertical-align:middle;"></td> 
+   <td style="text-align: center; vertical-align:middle;"></td> 
+   <td style="text-align: center; vertical-align:middle;"></td> 
+   <td style="text-align: center; vertical-align:middle;"></td> 
+   <td style="text-align: center; vertical-align:middle;"></td> 
+   <td style="text-align: center; vertical-align:middle;" th:each="key : ${secDemos}"></td>
+   <td></td>
+  </tr> 
+</tbody>

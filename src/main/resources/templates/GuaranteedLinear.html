@@ -1,0 +1,92 @@
+    <span th:each="level1 : ${guaranteedLinear}">
+    <tr style="background-color:#D0D3D4;font-weight:700" indent="1_" group_table_number="0" table_number="1" leaf="yes" collapse_id="0"
+	   > 
+	   <td style="white-space: nowrap; vertical-align:middle;"> 
+	    <div style="display:table;"> 
+	     <div th:utext="${level1.gs1}">	      
+	     </div> 
+	     <div style="display:table-cell; text-align: left;"></div> 
+	    </div></td> 
+	   <td style="text-align: center; vertical-align:middle;" th:utext="'$'+${#numbers.formatDecimal(level1.totalDollars, 1, 'COMMA', 0, 'POINT')}"></td> 
+	   <td style="text-align: center; vertical-align:middle;" th:utext="'$'+${#numbers.formatDecimal(level1.netDollars, 1, 'COMMA', 0, 'POINT')}"></td> 
+	   <td style="text-align: center; vertical-align:middle;" th:utext="${level1.guarGrossCpm!=null and level1.guarGrossCpm!='null'}?'$'+${#numbers.formatDecimal(level1.guarGrossCpm, 1, 2)}:''"></td> 
+	   <td style="text-align: center; vertical-align:middle;" th:utext="${level1.guarNetCpm!=null and level1.guarNetCpm!='null'}?'$'+${#numbers.formatDecimal(level1.guarNetCpm, 1, 2)}:''"></td> 
+	   <td style="text-align: center; vertical-align:middle;" th:utext="${level1.refinedGuarImps!=null and level1.refinedGuarImps!='null'}?${#numbers.formatDecimal(level1.refinedGuarImps, 1, 'COMMA', 0, 'POINT')}:''"></td> 
+	   <td style="text-align: center; vertical-align:middle;" th:utext="${level1.totalEquvUnitsExBB!=null and level1.totalEquvUnitsExBB!='null'}?${#numbers.formatDecimal(level1.totalEquvUnitsExBB, 1, 1)}:''"></td> 
+	   <td style="text-align: center; vertical-align:middle;" th:utext="${level1.bb05!=null and level1.bb05!='null'}?${#numbers.formatDecimal(level1.bb05,1,0)}:''"></td> 
+	   <td style="text-align: center; vertical-align:middle;" th:utext="${level1.bb10!=null and level1.bb10!='null'}?${#numbers.formatDecimal(level1.bb10,1,0)}:''"></td> 
+	   <td style="text-align: center; vertical-align:middle;" th:if="${hhExists=='N'}" th:utext="${level1.refinedHHImps!=null and level1.refinedHHImps!='null'}?${#numbers.formatDecimal(level1.refinedHHImps, 1, 'COMMA', 0, 'POINT')}:''"></td> 
+	   <td style="text-align: center; vertical-align:middle;" th:if="${hhExists=='N'}" th:utext="${level1.totalHHCpm!=null and level1.totalHHCpm!='null'}?'$'+${#numbers.formatDecimal(level1.totalHHCpm, 1, 2)}:''"></td> 
+	    <td style="text-align: center; vertical-align:middle;" th:each="key : ${secDemos}"  th:with="impressions=${level1.secDemoMap.get(key)}"  th:utext="${impressions!=null and impressions!='null' and impressions!=''}?${#numbers.formatDecimal(impressions, 1, 'COMMA', 0, 'POINT')}:''" ></td>
+	   
+	    <td></td>
+	    </tr> 	
+	    <span th:each="level2 : ${level1.children}">
+		  <tr style="background-color:#ECF0F1;font-weight:700" indent="1_" group_table_number="0" table_number="1" leaf="yes" collapse_id="0"
+		   > 
+		   <td style="white-space: nowrap; vertical-align:middle;"> 
+		    <div style="display:table;"> 
+		     <div th:utext="'&nbsp;&nbsp;&nbsp;'+${level2.gs2}">	      
+		     </div> 
+		     <div style="display:table-cell; text-align: left;"></div> 
+		    </div></td> 
+		   <td></td> 
+		   <td></td> 
+		   <td></td> 
+		   <td></td>
+		   <td style="text-align: center; vertical-align:middle;" th:utext="${level2.refinedGuarImps!=null and level2.refinedGuarImps!='null'}?${#numbers.formatDecimal(level2.refinedGuarImps, 1, 'COMMA', 0, 'POINT')}:''"></td> 
+	   	   <td style="text-align: center; vertical-align:middle;" th:utext="${level2.totalEquvUnitsExBB!=null and level2.totalEquvUnitsExBB!='null'}?${#numbers.formatDecimal(level2.totalEquvUnitsExBB, 1, 1)}:''"></td> 
+	   	   <td style="text-align: center; vertical-align:middle;" th:utext="${level2.bb05!=null and level2.bb05!='null'}?${#numbers.formatDecimal(level2.bb05,1,0)}:''"></td> 
+	   	   <td style="text-align: center; vertical-align:middle;" th:utext="${level2.bb10!=null and level2.bb10!='null'}?${#numbers.formatDecimal(level2.bb10,1,0)}:''"></td> 
+	       <td style="text-align: center; vertical-align:middle;" th:if="${hhExists=='N'}" th:utext="${level2.refinedHHImps!=null and level2.refinedHHImps!='null'}?${#numbers.formatDecimal(level2.refinedHHImps, 1, 'COMMA', 0, 'POINT')}:''"></td> 	    
+	       <td th:if="${hhExists=='N'}"></td>   
+	       <td style="text-align: center; vertical-align:middle;" th:each="key : ${secDemos}"  th:with="impressions=${level2.secDemoMap.get(key)}"  th:utext="${impressions!=null and impressions!='null' and impressions!=''}?${#numbers.formatDecimal(impressions, 1, 'COMMA', 0, 'POINT')}:''" ></td> 
+	       <td></td>
+	       </tr><span  th:each="level3 : ${level2.children}">	          
+	            <tr style="background-color:#F4F6F7;font-weight:700" indent="1_" group_table_number="0" table_number="1" leaf="yes" collapse_id="0"
+				   > 
+				   <td style="white-space: nowrap; vertical-align:middle;"> 
+				    <div style="display:table;"> 
+				     <div th:utext="'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+${level3.gs3}">	      
+				     </div> 
+				     <div style="display:table-cell; text-align: left;"></div> 
+				    </div></td> 
+				   <td></td>
+				   <td></td> 
+				   <td></td> 
+				   <td></td>
+				   <td style="text-align: center; vertical-align:middle;" th:utext="${level3.refinedGuarImps!=null and level3.refinedGuarImps!='null'}?${#numbers.formatDecimal(level3.refinedGuarImps, 1, 'COMMA', 0, 'POINT')}:''"></td>   
+			   	   <td style="text-align: center; vertical-align:middle;" th:utext="${level3.totalEquvUnitsExBB!=null and level3.totalEquvUnitsExBB!='null'}?${#numbers.formatDecimal(level3.totalEquvUnitsExBB, 1, 1)}:''"></td> 
+	   	   		   <td style="text-align: center; vertical-align:middle;" th:utext="${level3.bb05!=null and level3.bb05!='null'}?${#numbers.formatDecimal(level3.bb05,1,0)}:''"></td> 
+	   	           <td style="text-align: center; vertical-align:middle;" th:utext="${level3.bb10!=null and level3.bb10!='null'}?${#numbers.formatDecimal(level3.bb10,1,0)}:''"></td>
+	   	           <td style="text-align: center; vertical-align:middle;" th:if="${hhExists=='N'}" th:utext="${level3.refinedHHImps!=null and level3.refinedHHImps!='null'}?${#numbers.formatDecimal(level3.refinedHHImps, 1, 'COMMA', 0, 'POINT')}:''"></td> 			       
+			       <td th:if="${hhExists=='N'}"></td>			       
+			       <td style="text-align: center; vertical-align:middle;" th:each="key : ${secDemos}"  th:with="impressions=${level3.secDemoMap.get(key)}" th:utext="${impressions!=null and impressions!='null' and impressions!=''}?${#numbers.formatDecimal(impressions, 1, 'COMMA', 0, 'POINT')}:''" ></td> 	
+			       <td></td>
+			       </tr>
+			       <span th:each="level4 : ${level3.children}">		        			    
+			         <tr style="background-color:#FDFEFE;font-weight:700" indent="1_" group_table_number="0" table_number="1" leaf="yes" collapse_id="0"
+					   > 
+					   <td style="white-space: nowrap; vertical-align:middle;"> 
+					    <div style="display:table;"> 
+					     <div th:utext="'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+${level4.gs4}">	      
+					     </div> 
+					     <div style="display:table-cell; text-align: left;"></div> 
+					    </div></td> 
+					   <td></td>
+					   <td></td> 
+					   <td></td> 
+					   <td></td>
+					   <td style="text-align: center; vertical-align:middle;" th:utext="${level4.refinedGuarImps!=null and level4.refinedGuarImps!='null'}?${#numbers.formatDecimal(level4.refinedGuarImps, 1, 'COMMA', 0, 'POINT')}:''"></td> 				   
+				   	   <td></td>
+				       <td></td>
+				       <td></td>
+				       <td style="text-align: center; vertical-align:middle;" th:if="${hhExists=='N'}" th:utext="${level4.refinedHHImps!=null and level4.refinedHHImps!='null'}?${#numbers.formatDecimal(level4.refinedHHImps, 1, 'COMMA', 0, 'POINT')}:''"></td> 
+				       <td th:if="${hhExists=='N'}"></td>	       
+				       <td style="text-align: center; vertical-align:middle;" th:each="key : ${secDemos}"  th:with="impressions=${level4.secDemoMap.get(key)}" th:utext="${impressions!=null and impressions!='null' and impressions!=''}?${#numbers.formatDecimal(impressions, 1, 'COMMA', 0, 'POINT')}:''" ></td> 
+				       <td></td>				       
+			         </tr> 
+	 			</span>
+	 		</span>
+	 	</span>
+	 </span>
